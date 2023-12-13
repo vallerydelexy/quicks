@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import useLoadingStore from "@/store/loadingSpinner";
 import { generateRandomDate, calculateDaysLeft } from "@/utils/date";
+import Select from "./select";
 
 export default function TaskListWindow() {
   const [tasks, setTasks] = useState([]);
@@ -35,15 +36,13 @@ export default function TaskListWindow() {
   }, [setLoading]);
 
   return (
-    <div className="w-[734px] h-[737px] flex flex-col">
+    <div className="w-[734px] h-[737px] flex flex-col pt-2 pb-8 px-4">
       {/* select task dropdown */}
-      <div className="flex justify-between">
-        <select className="border-2 border-gray-300 p-4 rounded-md">
-          <option value="default">All</option>
-          <option value="completed">Completed</option>
-          <option value="incomplete">Incomplete</option>
-        </select>
-        <button className="bg-blue1 text-white p-4 rounded-md">New Task</button>
+      <div className="flex justify-between pb-2">
+        <Select options={["To Do", "Personal Errands"]} className={""} />
+        <button className="bg-blue-500 text-white px-4 rounded-md h-[40px] items-center justify-center">
+          New Task
+        </button>
       </div>
       {/* task lists container */}
       <div className="flex-1  overflow-y-scroll">
@@ -52,25 +51,40 @@ export default function TaskListWindow() {
           {tasks.map((task) => (
             <div
               key={task.id}
-              className="border-2 border-gray-300 p-4 rounded-md"
+              className="border-2 border-gray-300 p-4 rounded-md flex flex-col"
             >
-              <div className="flex flex-row gap-2">
-                <input
-                  type="checkbox"
-                  className="  text-gray1 h-[18px] w-[18px] border-gray1 border-2 focus:ring-0 bg-white rounded"
-                />
-                <h1 className="text-[16px] text-gray2 font-semibold flex-grow">
-                  {task.title}
-                </h1>
-                <p className="text-red1 whitespace-nowrap flex-shrink-0">
-                  {calculateDaysLeft(task.date)} days left
-                </p>
-                <p>{new Date(task.date).toLocaleDateString()}</p>
+              <div className="flex flex-row">
+                <div className="flex-shrink-0">
+                  <input
+                    type="checkbox"
+                    className="mr-4 text-gray1 h-[18px] w-[18px] border-gray1 border-2 focus:ring-0 bg-white rounded"
+                  />
+                </div>
+                <div className="flex-grow">
+                  <div className="flex flex-row gap-2">
+                    <h1 className="text-[16px] text-gray2 font-semibold flex-grow">
+                      {task.title}
+                    </h1>
+                    <p className="text-red1 whitespace-nowrap flex-shrink-0">
+                      {calculateDaysLeft(task.date)} days left
+                    </p>
+                    <p>{new Date(task.date).toLocaleDateString()}</p>
+                  </div>
+                  <div>
+                    <input
+                      type="date"
+                      defaultValue={
+                        new Date(task.date).toISOString().split("T")[0]
+                      }
+                    />
+                    <p>
+                      {task.id} {task.completed ? "Completed" : "Incomplete"}{" "}
+                      {task.title} {task.completed ? "Completed" : "Incomplete"}{" "}
+                      {new Date(task.date).toLocaleDateString()}
+                    </p>
+                  </div>
+                </div>
               </div>
-
-              <p>{task.completed ? "Completed" : "Incomplete"}</p>
-              <p>Date: {new Date(task.date).toLocaleDateString()}</p>
-              {/* Add more task details as needed */}
             </div>
           ))}
         </div>
