@@ -11,6 +11,7 @@ import {
   UnreadIndicator,
   HorizontalLineOnChatDate,
   SmallLoadingCircle,
+  MagnifyingGlassIcon,
 } from "./icons";
 import usePopupStore from "@/store/popUpWindow";
 import useLoadingStore from "@/store/loadingSpinner";
@@ -187,12 +188,12 @@ export default function ChatWindow() {
             >
               <div className="w-[666px] h-[32px] rounded mx-auto flex items-center">
                 <label className="absolute pl-4 text-gray2">Search</label>
-
                 <input
                   type="text"
                   className="w-full focus:outline-none h-[32px] border-2 border-gray2 mx-2 px-[64px] my-[22px] active:ring-0 focus:ring-0"
                 >
                 </input>
+                <MagnifyingGlassIcon className={"absolute fill-gray2 right-[3.5rem] h-[12px] w-[12px] cursor-pointer"} />
               </div>
 
               <ul className="flex flex-col">
