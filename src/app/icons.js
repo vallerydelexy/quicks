@@ -1,3 +1,52 @@
+export const HorizontalLineOnChatDate = ({className, bool, expected}) => {
+  return (<div
+    className={`flex-grow h-[1px] ${
+      bool === expected ? "bg-red1" : "bg-gray3"
+    } ${className}`}
+  />)
+}
+
+export const HorizontalDotMenu = ({className}) => {
+  return (<svg width="31" height="31" viewBox="0 0 31 31" className={className} xmlns="http://www.w3.org/2000/svg">
+  <g id="more_horiz_24px">
+  <path id="icon/navigation/more_horiz_24px" fillRule="evenodd" clipRule="evenodd" d="M8.07016 12.5731C6.68712 12.5731 5.55554 13.7046 5.55554 15.0877C5.55554 16.4707 6.68712 17.6023 8.07016 17.6023C9.4532 17.6023 10.5848 16.4707 10.5848 15.0877C10.5848 13.7046 9.4532 12.5731 8.07016 12.5731ZM23.1579 12.5731C21.7748 12.5731 20.6433 13.7046 20.6433 15.0877C20.6433 16.4707 21.7748 17.6023 23.1579 17.6023C24.5409 17.6023 25.6725 16.4707 25.6725 15.0877C25.6725 13.7046 24.5409 12.5731 23.1579 12.5731ZM13.0994 15.0877C13.0994 13.7046 14.231 12.5731 15.614 12.5731C16.9971 12.5731 18.1286 13.7046 18.1286 15.0877C18.1286 16.4707 16.9971 17.6023 15.614 17.6023C14.231 17.6023 13.0994 16.4707 13.0994 15.0877Z"/>
+  </g>
+  </svg>
+  )
+}
+
+export const LeftArrowIcon = ({ className }) => {
+  return (
+    <svg
+      width="32"
+      height="31"
+      viewBox="0 0 32 31"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M25.9883 13.8304H10.6868L17.7152 6.80204L15.9298 5.02924L5.87134 15.0877L15.9298 25.1462L17.7026 23.3734L10.6868 16.345H25.9883V13.8304Z" />
+    </svg>
+  );
+};
+
+export const CloseIcon = ({ className }) => {
+  return (
+    <svg
+      width="21"
+      height="21"
+      viewBox="0 0 21 21"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M21 2.115L18.885 0L10.5 8.385L2.115 0L0 2.115L8.385 10.5L0 18.885L2.115 21L10.5 12.615L18.885 21L21 18.885L12.615 10.5L21 2.115Z" />
+    </svg>
+  );
+};
+
+export function UnreadIndicator() {
+  return <i className="w-[10px] h-[10px] rounded-full bg-red1 self-center" />;
+}
+
 export const SearchIcon = () => {
   return (
     <svg
@@ -17,7 +66,51 @@ export const SearchIcon = () => {
   );
 };
 
-export const InboxIcon = ({className}) => {
+export function LetterIcon({ name, className }) {
+  return (
+    <div
+      className={`${className} rounded-full flex items-center justify-center font-bold`}
+    >
+      {name.slice(0, 1).toUpperCase()}
+    </div>
+  );
+}
+
+export const GroupIcon = () => {
+  return (
+    <svg
+      width="51"
+      height="34"
+      viewBox="0 0 51 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z"
+        fill="#E0E0E0"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17 11C15.3425 11 14 12.3425 14 14C14 15.6575 15.3425 17 17 17C18.6575 17 20 15.6575 20 14C20 12.3425 18.6575 11 17 11ZM18.5 14C18.5 13.175 17.825 12.5 17 12.5C16.175 12.5 15.5 13.175 15.5 14C15.5 14.825 16.175 15.5 17 15.5C17.825 15.5 18.5 14.825 18.5 14ZM21.5 21.5C21.35 20.9675 19.025 20 17 20C14.9825 20 12.6725 20.96 12.5 21.5H21.5ZM11 21.5C11 19.505 14.9975 18.5 17 18.5C19.0025 18.5 23 19.505 23 21.5V23H11V21.5Z"
+        fill="black"
+        fillOpacity="0.54"
+      />
+      <path
+        d="M51 17C51 26.3888 43.3888 34 34 34C24.6112 34 17 26.3888 17 17C17 7.61116 24.6112 0 34 0C43.3888 0 51 7.61116 51 17Z"
+        fill="#2F80ED"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M34 11C32.3425 11 31 12.3425 31 14C31 15.6575 32.3425 17 34 17C35.6575 17 37 15.6575 37 14C37 12.3425 35.6575 11 34 11ZM35.5 14C35.5 13.175 34.825 12.5 34 12.5C33.175 12.5 32.5 13.175 32.5 14C32.5 14.825 33.175 15.5 34 15.5C34.825 15.5 35.5 14.825 35.5 14ZM38.5 21.5C38.35 20.9675 36.025 20 34 20C31.9825 20 29.6725 20.96 29.5 21.5H38.5ZM28 21.5C28 19.505 31.9975 18.5 34 18.5C36.0025 18.5 40 19.505 40 21.5V23H28V21.5Z"
+        fill="white"
+      />
+    </svg>
+  );
+};
+
+export const InboxIcon = ({ className }) => {
   return (
     <svg
       className={className}
@@ -35,7 +128,7 @@ export const InboxIcon = ({className}) => {
   );
 };
 
-export const ActionIcon = ({className}) => {
+export const ActionIcon = ({ className }) => {
   return (
     <svg
       className={className}
@@ -53,7 +146,7 @@ export const ActionIcon = ({className}) => {
   );
 };
 
-export const TaskIcon = ({className}) => {
+export const TaskIcon = ({ className }) => {
   return (
     <svg
       className={className}
@@ -71,7 +164,7 @@ export const TaskIcon = ({className}) => {
   );
 };
 
-export const ChatIcon = ({className}) => {
+export const ChatIcon = ({ className }) => {
   return (
     <svg
       className={className}

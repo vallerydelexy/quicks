@@ -1,20 +1,34 @@
 "use client";
-import { useState } from "react";
 import { ActionIcon, InboxIcon, SearchIcon, TaskIcon } from "./icons";
 import PopUpWindow from "./popUpWindow";
 import usePopupStore from "@/store/popUpWindow";
+import useButtonStore from "@/store/mainButtons";
 import { motion, AnimatePresence } from "framer-motion";
+import useLoadingStore from "@/store/loadingSpinner";
+import useChatStore from "@/store/chatData";
 
 export default function Main() {
-  const [showButtons, setShowButtons] = useState(false);
+  const showButtons = useButtonStore((state) => state.buttonState);
+  const openButtons = useButtonStore((state) => state.openButtons);
+  const closeButtons = useButtonStore((state) => state.closeButtons);
   const isPopUpOpen = usePopupStore((state) => state.isOpen);
   const currentWindowContent = usePopupStore((state) => state.content);
+  const currentThread = usePopupStore((state) => state.thread);
   const openPopup = usePopupStore((state) => state.openPopup);
   const closePopup = usePopupStore((state) => state.closePopup);
   const setContent = usePopupStore((state) => state.setContent);
+  const setThread = usePopupStore((state) => state.setThread);
+  const setLoading = useLoadingStore((state) => state.setLoading);
+  const chats = useChatStore((state) => state.data);
+
   function openWindow(content) {
+    setThread("default")
     setContent(content);
     openPopup();
+    if(currentThread!=="default" && !chats){
+      setLoading(true)
+    }
+    
   }
   return (
     <main className="w-full">
@@ -131,8 +145,7 @@ export default function Main() {
           ${currentWindowContent === "default" ? "bg-blue1" : "bg-gray2"}
           fill-white text-center mx-auto shadow-light2 rounded-full`}
           onClick={() => {
-            setShowButtons(!showButtons);
-
+            showButtons?closeButtons():openButtons();
             if (isPopUpOpen) {
               openWindow("default");
               closePopup();

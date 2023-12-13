@@ -15,7 +15,7 @@ export default function LoadingCircle({ className, text }) {
     },
   };
 
-  const circleRadius = 25; // Adjusted radius
+  const circleRadius = 25;
 
   return (
     <div className={className}>
@@ -28,7 +28,7 @@ export default function LoadingCircle({ className, text }) {
       height="61.22"
       className="mx-auto"
     >
-      {/* Bottom Circle (full circle) */}
+      
       <motion.circle
         cx="30.61"
         cy="30.61"
@@ -42,7 +42,7 @@ export default function LoadingCircle({ className, text }) {
         variants={circleVariants}
       />
 
-      {/* Top Circle (half circle) */}
+      
       <motion.circle
         cx="30.61"
         cy="30.61"

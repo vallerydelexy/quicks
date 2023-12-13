@@ -1,39 +1,51 @@
-import { useRef } from "react";
 import usePopupStore from "@/store/popUpWindow";
 import { motion, AnimatePresence } from "framer-motion";
 import LoadingCircle from "./loadingCircle";
+import ChatWindow from "./chatWindow";
+import useLoadingStore from "@/store/loadingSpinner";
 
 export default function PopUpWindow() {
   const isOpen = usePopupStore((state) => state.isOpen);
+  const isLoading = useLoadingStore((state) => state.loading);
   const currentWindowContent = usePopupStore((state) => state.content);
   const closePopup = usePopupStore((state) => state.closePopup);
-  const windowRef = useRef(null);
-  const closePopUpWindow = (event) => {
-    if (windowRef.current && !windowRef.current.contains(event.target)) {
-      closePopup();
-    }
-  };
-
-  
   return (
     <>
       {isOpen && (
-        <main onClick={closePopUpWindow}>
+        <main className="fixed right-4 bottom-20">
           <AnimatePresence>
             {isOpen && (
-              <motion.section
-                ref={windowRef}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.1 }}
-                className="fixed bottom-[5.5em] rounded z-10 right-4 w-[734px] h-[737px] bg-white text-black"
-              >
-                {currentWindowContent}
-                
-                <LoadingCircle className={"absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto text-center"} text={"Loading Chats ..."} />
-                
-              </motion.section>
+              <section className="rounded z-10 bg-white text-black px-auto">
+                {currentWindowContent === "chat" && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                    <ChatWindow />
+                  </motion.div>
+                )}
+                {currentWindowContent === "task" && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                    task window
+                  </motion.div>
+                )}
+
+                {isLoading && (
+                  <LoadingCircle
+                    className={
+                      "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto text-center"
+                    }
+                    text={"Loading Chats ..."}
+                  />
+                )}
+              </section>
             )}
           </AnimatePresence>
         </main>

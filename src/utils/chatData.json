@@ -1,0 +1,191 @@
+[
+    {
+      "thread": "109220-Naturalization",
+      "type": "group",
+      "id": "3",
+      "data": [
+        {
+          "id": "2",
+          "text": "Hey, how's it going?",
+          "sender": "You",
+          "senderId": "1",
+          "receiver": "Working Chat Group",
+          "receiverId": "3",
+          "timestamp": "2023-01-02T09:30:00.000Z",
+          "read": true
+        },
+        {
+          "id": "3",
+          "text": "Hey, how's it going?",
+          "sender": "John",
+          "senderId": "2",
+          "receiver": "Working Chat Group",
+          "receiverId": "3",
+          "timestamp": "2023-01-02T09:30:00.000Z",
+          "read": true
+        },
+        {
+          "id": "4",
+          "text": "Good morning, everyone!",
+          "sender": "Eve",
+          "senderId": "4",
+          "receiver": "Working Chat Group",
+          "receiverId": "3",
+          "timestamp": "2023-01-02T09:35:00.000Z",
+          "read": true
+        },
+        {
+          "id": "5",
+          "text": "Morning!",
+          "sender": "Bob",
+          "senderId": "5",
+          "receiver": "Working Chat Group",
+          "receiverId": "3",
+          "timestamp": "2023-03-02T09:40:00.000Z",
+          "read": true
+        },
+        {
+          "id": "6",
+          "text": "Hey, how's it going?",
+          "sender": "You",
+          "senderId": "1",
+          "receiver": "Working Chat Group",
+          "receiverId": "3",
+          "timestamp": "2023-03-02T09:30:00.000Z",
+          "read": true
+        },
+        {
+          "id": "7",
+          "text": "Hey, how's it going?",
+          "sender": "John",
+          "senderId": "2",
+          "receiver": "Working Chat Group",
+          "receiverId": "3",
+          "timestamp": "2023-03-02T09:30:00.000Z",
+          "read": true
+        },
+        {
+          "id": "8",
+          "text": "Good morning, everyone!",
+          "sender": "Eve",
+          "senderId": "4",
+          "receiver": "Working Chat Group",
+          "receiverId": "3",
+          "timestamp": "2023-03-02T09:35:00.000Z",
+          "read": true
+        },
+        {
+          "id": "9",
+          "text": "Morning!",
+          "sender": "Bob",
+          "senderId": "5",
+          "receiver": "Working Chat Group",
+          "receiverId": "3",
+          "timestamp": "2023-04-02T09:40:00.000Z",
+          "read": false
+        }
+      ]
+    },
+    {
+      "thread": "Jeannette Moraima Guaman Chamba (Hutto I-589) [ Hutto Follow Up - Brief Service ]",
+      "type": "group",
+      "id": "6",
+      "data": [
+        {
+          "id": "6",
+          "text": "Hi everyone!",
+          "sender": "Mom",
+          "senderId": "6",
+          "receiver": "Family Chat",
+          "receiverId": "6",
+          "timestamp": "2023-02-10T18:00:00.000Z",
+          "read": true
+        },
+        {
+          "id": "7",
+          "text": "Hello, Mom!",
+          "sender": "Dad",
+          "senderId": "7",
+          "receiver": "Family Chat",
+          "receiverId": "6",
+          "timestamp": "2023-02-10T18:05:00.000Z",
+          "read": true
+        },
+        {
+          "id": "8",
+          "text": "How was everyone's day?",
+          "sender": "Sister",
+          "senderId": "8",
+          "receiver": "Family Chat",
+          "receiverId": "6",
+          "timestamp": "2023-02-10T18:10:00.000Z",
+          "read": true
+        }
+      ]
+    },
+    {
+      "thread": "8405-Diana SALAZAR MUNGUIA",
+      "type": "group",
+      "id": "9",
+      "data": [
+        {
+          "id": "9",
+          "text": "Hey, has anyone tried the new VR headset?",
+          "sender": "TechFan1",
+          "senderId": "9",
+          "receiver": "Tech Enthusiasts",
+          "receiverId": "9",
+          "timestamp": "2023-03-05T15:30:00.000Z",
+          "read": true
+        },
+        {
+          "id": "10",
+          "text": "Not yet, but I heard it's amazing!",
+          "sender": "TechFan2",
+          "senderId": "10",
+          "receiver": "Tech Enthusiasts",
+          "receiverId": "9",
+          "timestamp": "2023-03-05T15:35:00.000Z",
+          "read": true
+        },
+        {
+          "id": "11",
+          "text": "I'm thinking of getting one. Any recommendations?",
+          "sender": "TechFan3",
+          "senderId": "11",
+          "receiver": "Tech Enthusiasts",
+          "receiverId": "9",
+          "timestamp": "2023-03-05T15:40:00.000Z",
+          "read": true
+        }
+      ]
+    },
+    {
+        "thread": "FastVisa Support",
+        "type": "private",
+        "id": "2",
+        "data": [
+          {
+            "id": "1",
+            "text": "Hello",
+            "sender": "FastVisa Support",
+            "senderId": "2",
+            "receiver": "You",
+            "receiverId": "1",
+            "timestamp": "2023-01-01T12:00:00.000Z",
+            "read": true
+          },
+          {
+            "id": "2",
+            "text": "Hi there!",
+            "sender": "You",
+            "senderId": "1",
+            "receiver": "FastVisa Support",
+            "receiverId": "2",
+            "timestamp": "2023-01-01T12:05:00.000Z",
+            "read": true
+          }
+        ]
+      }
+  ]
+  
