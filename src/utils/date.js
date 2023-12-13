@@ -50,3 +50,18 @@ export const prettyDate = (timestamp) => {
     });
   }
 };
+
+export function generateRandomDate () {
+  const today = new Date();
+  const weekFromNow = new Date(today);
+  weekFromNow.setDate(today.getDate() + 7);
+  const randomDate = new Date(today.getTime() + Math.random() * (weekFromNow.getTime() - today.getTime()));
+  return randomDate.toISOString();
+};
+
+export function calculateDaysLeft(targetDate) {
+  const targetDateTime = new Date(targetDate).getTime();
+  const now = new Date().getTime();
+  const difference = targetDateTime - now;
+  return Math.ceil(difference / (1000 * 60 * 60 * 24));
+}

@@ -28,7 +28,13 @@ export default function Main() {
     if(currentThread!=="default" && !chats){
       setLoading(true)
     }
-    
+  }
+
+  function closeWindow(){
+    setThread("default")
+    setContent("default")
+    closePopup();
+    setLoading(false)
   }
   return (
     <main className="w-full">
@@ -39,7 +45,7 @@ export default function Main() {
           </button>
         </div>
       </section>
-      <PopUpWindow />
+      <PopUpWindow onClose={() => closeWindow()} />
       <section className="fixed bottom-4 right-4 flex gap-4 items-end">
         <AnimatePresence>
           {showButtons && (

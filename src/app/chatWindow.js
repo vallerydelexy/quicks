@@ -10,6 +10,7 @@ import {
   LetterIcon,
   UnreadIndicator,
   HorizontalLineOnChatDate,
+  SmallLoadingCircle,
 } from "./icons";
 import usePopupStore from "@/store/popUpWindow";
 import useLoadingStore from "@/store/loadingSpinner";
@@ -20,7 +21,7 @@ import { useOnScreen } from "@/utils/hooks";
 
 export default function ChatWindow() {
   const [newMessageElementRef, setNewMessageElementRef] = useState(null);
-  const [curElRef, setCurElRef] = useState()
+  const [curElRef, setCurElRef] = useState();
   const [newMessage, setNewMessage] = useState([]);
   const isOpen = usePopupStore((state) => state.isOpen);
   const closePopup = usePopupStore((state) => state.closePopup);
@@ -53,7 +54,6 @@ export default function ChatWindow() {
   }, []);
   useLayoutEffect(() => {
     if (isNewMessageElementVisible) {
-      
     }
   }, [isNewMessageElementVisible]);
   const currentThread = usePopupStore((state) => state.thread);
@@ -115,7 +115,7 @@ export default function ChatWindow() {
           <div className="flex items-center gap-3 pt-[22px]">
             <HorizontalLineOnChatDate bool={date} expected={"unread"} />
             <p
-              ref={(ref)=>setNewMessageElementRef(ref)}
+              ref={(ref) => setNewMessageElementRef(ref)}
               className={`text-[16px] ${
                 date === "unread" ? "text-red1" : "text-gray3"
               } font-bold text-center`}
@@ -306,21 +306,35 @@ export default function ChatWindow() {
             </div>
           )}
 
-          {currentThread !== "default" && !isNewMessageElementVisible && (
-            <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2">
-              <div className="flex">
-                <div className="mx-auto">
-                  <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.1 }}
-                    className=" text-[12px] text-blue1 bg-blue2 font-bold whitespace-nowrap p-2 rounded-[5px]"
-                  >
-                    New Message
-                  </motion.span>
-                </div>
-              </div>
+          {currentThread !== "default" && (
+            <div className="absolute bottom-[88px] left-1/2 transform -translate-x-1/2">
+              {!isNewMessageElementVisible && (
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.1 }}
+                  className=" text-[12px] text-blue1 bg-blue2 font-bold whitespace-nowrap p-2 rounded-[5px]"
+                >
+                  New Message
+                </motion.span>
+              )}
+              {currentThread === "FastVisa Support" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.1 }}
+                  className=" text-[12px] text-blue1 bg-blue2 font-bold whitespace-nowrap py-[12px] pr-[308px] pl-[12px] rounded-[5px] flex flex-row gap-2"
+                >
+                  <SmallLoadingCircle
+                    className={"animate-spin h-5 w-5 text-blue1"}
+                  />{" "}
+                  <span className="flex-grow">
+                    Please wait while we connect you with one of our team ...
+                  </span>
+                </motion.div>
+              )}
             </div>
           )}
         </div>
