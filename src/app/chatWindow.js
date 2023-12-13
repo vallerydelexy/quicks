@@ -185,13 +185,16 @@ export default function ChatWindow() {
               transition={{ duration: 0.2 }}
               className="px-[32px] py-[22px] w-[734px] h-[737px]"
             >
-              <div className="w-[666px] h-[32px] px-[64px] my-[22px] rounded border-2 mx-auto flex items-center">
-                Search
+              <div className="w-[666px] h-[32px] rounded mx-auto flex items-center">
+                <label className="absolute pl-4 text-gray2">Search</label>
+
                 <input
                   type="text"
-                  className="w-full px-2 focus:outline-none focus:ring-0"
-                />
+                  className="w-full focus:outline-none h-[32px] border-2 border-gray2 mx-2 px-[64px] my-[22px] active:ring-0 focus:ring-0"
+                >
+                </input>
               </div>
+
               <ul className="flex flex-col">
                 {chats?.map((chat) => (
                   <li
